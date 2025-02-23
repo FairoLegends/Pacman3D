@@ -28,8 +28,8 @@ public class PlayerMovement : MonoBehaviour
         //Horizontal = W atau Kedepan (+) dan S atau Kebelakang ()
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 horizontalDirection = horizontal * transform.right;
-        Vector3 verticalDirection = vertical * transform.forward ;
+        Vector3 horizontalDirection = horizontal * cam.transform.right;
+        Vector3 verticalDirection = vertical * cam.transform.forward ;
         verticalDirection.y = 0;
         horizontalDirection.y = 0;
         
