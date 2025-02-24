@@ -6,12 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     //Mengatur kecepatan gerak player
     public float speed;
-    private Rigidbody rb;
-    public Camera cam; 
+    private Rigidbody rigidbody;
+    public Camera camera; 
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
         HideCursor();
     }
 
@@ -28,13 +28,13 @@ public class PlayerMovement : MonoBehaviour
         //Horizontal = W atau Kedepan (+) dan S atau Kebelakang ()
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 horizontalDirection = horizontal * cam.transform.right;
-        Vector3 verticalDirection = vertical * cam.transform.forward ;
+        Vector3 horizontalDirection = horizontal * camera.transform.right;
+        Vector3 verticalDirection = vertical * camera.transform.forward ;
         verticalDirection.y = 0;
         horizontalDirection.y = 0;
         
         Vector3 movementDirection = horizontalDirection + verticalDirection;
 
-        rb.velocity = movementDirection * speed * Time.fixedDeltaTime;
+        rigidbody.velocity = movementDirection * speed * Time.fixedDeltaTime;
     }
 }
