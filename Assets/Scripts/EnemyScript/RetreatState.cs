@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RetreatState : MonoBehaviour, BaseState
+public class RetreatState : BaseState
 {
     public void EnterState(Enemy enemy)
     {

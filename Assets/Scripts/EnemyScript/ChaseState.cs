@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChaseState : MonoBehaviour, BaseState
+public class ChaseState : BaseState
 {
     public void EnterState(Enemy enemy)
     {
@@ -11,7 +11,14 @@ public class ChaseState : MonoBehaviour, BaseState
 
     public void UpdateState(Enemy enemy)
     {
-        Debug.Log("Patrolling");
+        if (enemy.Player != null)
+        {
+            enemy.NavMeshAgent.destination = enemy.Player.transform.position;
+            if (Vector3.Distance(enemy.transform.position, enemy.Player.transform.position) > enemy.ChaseDistance)
+            {
+                enemy.SwtichState(enemy.PatrolState);
+            }
+        }
     }
 
     public void ExitState(Enemy enemy)
