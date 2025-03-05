@@ -1,13 +1,45 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Action OnPowerUpStart;
+    public Action OnPowerUpStop;
+
     //Mengatur kecepatan gerak player
     public float speed;
+    public Camera camera;
+    public float powerUpDuration;
+
     private Rigidbody rigidbody;
-    public Camera camera; 
+    private Coroutine powerUpCoroutine;
+
+    public void PickPowerUp()
+    {
+        if (powerUpCoroutine != null)
+        {
+            StopCoroutine(powerUpCoroutine);
+        }
+
+        powerUpCoroutine = StartCoroutine(StartPowerUp());
+    }
+
+    private IEnumerator StartPowerUp()
+    {
+        if (OnPowerUpStart != null)
+        {
+            OnPowerUpStart();
+        }
+        
+        yield return new WaitForSeconds(powerUpDuration);
+
+        if (OnPowerUpStop != null)
+        {
+            OnPowerUpStop();
+        }
+    }
 
     void Awake()
     {

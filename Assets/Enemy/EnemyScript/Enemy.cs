@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -38,11 +39,30 @@ public class Enemy : MonoBehaviour
         NavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
+    private void Start()
+    {
+        if (Player != null)
+        {
+            Player.OnPowerUpStart += StartRetreating;
+            Player.OnPowerUpStop += StopRetreating;
+        }
+    }
+
     private void Update()
     {
         if (_currentState != null)
         {
             _currentState.UpdateState(this);
         }
+    }
+    
+    void StartRetreating()
+    {
+        SwtichState(RetreatState);
+    }
+
+    void StopRetreating()
+    {
+        SwtichState(PatrolState);
     }
 }
