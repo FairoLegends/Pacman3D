@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Health = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("LoseScene");
         }
 
         UpdateUI();
