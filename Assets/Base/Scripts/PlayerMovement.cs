@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; 
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text healthText;
     public Transform respawnPoint;
     public float rotationTime = 0.1f;
+    public Animator animator;
 
 
     private Rigidbody rigidbody;
@@ -100,6 +101,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         rigidbody.velocity = movementDirection * speed * Time.fixedDeltaTime;
+
+        animator.SetFloat("Velocity", rigidbody.velocity.magnitude);
     }
 
     private void OnCollisionEnter(Collision collision)

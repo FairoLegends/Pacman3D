@@ -62,6 +62,7 @@ public class Enemy : MonoBehaviour
         {
             _currentState.UpdateState(this);
         }
+        animator.SetFloat("Velocity", NavMeshAgent.velocity.magnitude);
     }
     
     void StartRetreating()

@@ -14,7 +14,6 @@ public class RetreatState : BaseState
         if (enemy.Player != null)
         {
             enemy.NavMeshAgent.destination = enemy.transform.position - enemy.Player.transform.position;
-            enemy.animator.SetTrigger("RetreatState");
         }
     }
 

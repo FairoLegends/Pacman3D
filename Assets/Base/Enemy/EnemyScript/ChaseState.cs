@@ -7,7 +7,6 @@ public class ChaseState : BaseState
     public void EnterState(Enemy enemy)
     {
         Debug.Log("Memulai Patrol");
-        enemy.animator.SetTrigger("ChaseState");
     }
 
     public void UpdateState(Enemy enemy)
