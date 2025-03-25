@@ -118,6 +118,6 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateUI()
     {
-        healthText.text = "Health: " + Health;
+        healthText.text = Health.ToString();
     }
 }
