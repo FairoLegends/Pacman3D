@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     public float ChaseDistance;
     [SerializeField]
     public PlayerMovement Player;
+    [SerializeField]
+    public AudioSource playerFoundSFX;
+
 
 
     private BaseState _currentState;

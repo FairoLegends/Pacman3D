@@ -19,7 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform respawnPoint;
     public float rotationTime = 0.1f;
     public Animator animator;
-
+    public AudioSource powerUpActiveSFX;
+    public AudioSource powerUpDeactiveSFX;
+    public AudioSource deadSFX;
 
     private Rigidbody rigidbody;
     private Coroutine powerUpCoroutine;
@@ -29,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public void Dead()
     {
         Health -= 1;
+        deadSFX.Play();
 
         if (Health > 0)
         {
@@ -37,7 +40,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             Health = 0;
-            SceneManager.LoadScene("LoseScene");
+            ////mengubah scene win sesuai index scene
+            SceneManager.LoadScene(3);
         }
 
         UpdateUI();
@@ -55,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator StartPowerUp()
     {
+        powerUpActiveSFX.Play();
         isPowerUpActive = true;
         if (OnPowerUpStart != null)
         {
@@ -63,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         
         yield return new WaitForSeconds(powerUpDuration);
         isPowerUpActive = false;
+        powerUpDeactiveSFX.Play();
 
         if (OnPowerUpStop != null)
         {

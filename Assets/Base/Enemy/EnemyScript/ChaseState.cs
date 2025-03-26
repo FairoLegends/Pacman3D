@@ -6,7 +6,7 @@ public class ChaseState : BaseState
 {
     public void EnterState(Enemy enemy)
     {
-        Debug.Log("Memulai Patrol");
+        enemy.playerFoundSFX.Play();
     }
 
     public void UpdateState(Enemy enemy)

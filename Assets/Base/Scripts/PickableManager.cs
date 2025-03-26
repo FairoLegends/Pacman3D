@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 public class PickableManager : MonoBehaviour
 {
     [SerializeField]
-    private PlayerMovement _player;
+    private PlayerMovement player;
     [SerializeField]
     private ScoreManager scoreManager;
+    [SerializeField]
+    private AudioSource pickupCoinSFX;
+    private AudioSource pickupowerUpSFX;
 
     private List<Pickable> _pickableList = new List<Pickable>();
 
@@ -40,12 +43,17 @@ public class PickableManager : MonoBehaviour
 
         if (pickable.pickableType == PickableType.PowerUP)
         {
-            _player?.PickPowerUp();
+            player?.PickPowerUp();
+        }
+        else
+        {
+            pickupCoinSFX.Play();
         }
 
         if (_pickableList.Count <= 0)
         {
-            SceneManager.LoadScene("WinScreen");
+            //mengubah scene win sesuai index scene
+            SceneManager.LoadScene(2);
         }
     }
 }

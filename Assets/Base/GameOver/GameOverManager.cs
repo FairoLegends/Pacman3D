@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    public int sceneRetry;
+    public int sceneMainMenu;
     public void Retry()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene(sceneRetry);
     }
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(sceneMainMenu);
     }
 
     private void Start()

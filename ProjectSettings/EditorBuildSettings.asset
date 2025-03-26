@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Base/Scenes/MainMenu.unity
+    path: Assets/ExampleWarehouse/Scene/WarehouseMainMenu.unity
     guid: 4bd07614800efb548b996dcfe9f552e3
   - enabled: 1
-    path: Assets/Base/Scenes/Gameplay.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/ExampleWarehouse/Scene/GameplayWarehouse.unity
+    guid: 52fa4c9df0df1e6499b55dff626879f0
   - enabled: 1
-    path: Assets/Base/Scenes/WinScreen.unity
+    path: Assets/ExampleWarehouse/Scene/WarehouseWinScreen.unity
     guid: 966474a23d529c746be231781d469a26
   - enabled: 1
-    path: Assets/Base/Scenes/LoseScene.unity
-    guid: 328e2af6643b9be44becae84c6a84e61
+    path: Assets/ExampleWarehouse/Scene/WarehouseLoseScreen.unity
+    guid: 3c402faea4ed49040b039ad68a0006f6
   m_configObjects: {}
