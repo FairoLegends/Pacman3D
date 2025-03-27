@@ -11,7 +11,6 @@ public class PickableManager : MonoBehaviour
     private ScoreManager scoreManager;
     [SerializeField]
     private AudioSource pickupCoinSFX;
-    private AudioSource pickupowerUpSFX;
 
     private List<Pickable> _pickableList = new List<Pickable>();
 
